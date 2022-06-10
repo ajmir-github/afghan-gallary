@@ -1,0 +1,79 @@
+<!-- TOP PAGE -->
+<div class="top-page container py-5">
+	<header class="row justify-content-center">
+		<img class="logo" src="/images/logo.png">
+	</header>
+	<nav class="row justify-content-center mt-2">
+
+		<ul class="nav justify-content-center text-uppercase">
+
+			<li class="nav-item">
+				<a class="nav-link my-link <%= navActive==1?'active':'' %>" href="/"><i class="btn-icon icon-home"></i>Home</a>
+			</li>
+
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle my-link" data-toggle="dropdown" href="#"><i
+						class="btn-icon icon-folder-images <%= navActive==2?'active':'' %>"></i>Departments</a>
+				<div class="dropdown-menu shadow">
+					<% departments.forEach(([department, count])=>{ %>
+						<a class="dropdown-item" href="/?department=<%= department %>"><%= department %> <span
+								class="badge badge-pill badge-secondary"><%= count %></span></a>
+					<% }) %>
+				</div>
+			</li>
+
+			<li class="nav-item">
+				<a class="nav-link my-link <%= navActive==3?'active':'' %>" href="/upload"><i class="btn-icon icon-upload32"></i>Upload</a>
+			</li>
+
+			<!-- Button to Open the Modal -->
+			<li class="nav-item">
+				<a class="nav-link my-link" href="#" data-toggle="modal" data-target="#myModal"><i class="btn-icon icon-search2"></i>Search</a>
+			</li>
+			
+			<!-- <li class="nav-item">
+				<a class="nav-link my-link disabled <%= navActive==4?'active':'' %>" href="/sign_in"><i class="btn-icon icon-login"></i>Sign In</a>
+			</li> -->
+
+			<li class="nav-item">
+				<a class="nav-link my-link <%= navActive==5?'active':'' %>" href="/about"><i class="btn-icon icon-info"></i>About</a>
+			</li>
+
+		</ul>
+
+	</nav>
+</div>
+<!-- END OF TOP PAGE -->
+
+
+
+
+
+<!-- The Search Modal -->
+<div class="modal" id="myModal">
+	<div class="modal-dialog">
+			<form class="modal-content" action="/" method="get">
+
+					<!-- Modal Header -->
+					<div class="modal-header">
+							<h4 class="modal-title">Search Here!</h4>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+
+					<!-- Modal body -->
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="search-keywords">Keywords:</label>
+							<input type="text" class="form-control" name="search" id="search-keywords">
+						</div>
+					</div>
+
+					<!-- Modal footer -->
+					<div class="modal-footer">
+							<button type="submit" class="btn btn-primary">Search</button>
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+					</div>
+
+			</form>
+	</div>
+</div>

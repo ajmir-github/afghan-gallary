@@ -1,0 +1,27 @@
+
+
+<!-- SINGLE IMAGE -->
+<div class="single-image container-fluid mb-5">
+
+ <div class="row description pb-5 px-1 p-md-5 justify-content-center">
+  <h1 class="col-10 mb-4"><i class="icon icon-camera2"></i><%= post.title %></h1>
+  <h6 class="col-10"><i class="icon icon-user2"></i><%= post.photographer %></h6>
+  <h6 class="col-10"><i class="icon icon-upload2"></i><%= post.date.toDateString().split(" ").slice(1, 4).join(" ") %></h6>
+  <div class="col-10">
+   <% post.keywords.split(",").forEach( keyword =>{ %>
+    <a href="/?department=<%= keyword.trim() %>"><span class="badge badge-primary"><%= keyword.trim() %></span></a>
+   <% }) %>
+  </div>
+  <div class="col-10 buttons">
+   <a><i class="liked_icon" data-id='<%= post._id %>' onclick="like('<%= post._id %>')"></i></a>
+   <a href="/files/<%= post.image.lg %>" download><i class="icon-download32"></i></a>
+   <a><i class="icon-share-alternitive" onclick="CopyToClipBoard()"></i></a>
+  </div>
+ </div>
+
+ <div class="row image">
+  <img class="col-12 img-loading" src="/files/<%= post.image.lg %>" alt="<%= post.title %>">
+ </div>
+
+</div>
+<!-- END OF SINGLE IMAGE -->

@@ -1,0 +1,53 @@
+<!-- MAIN PAGE -->
+<div class="main-page container-fluid">
+
+	<!-- POSTS -->
+	<div class="posts row">
+
+		<!-- START EJS -->
+		<% posts.forEach(post => { %>
+		<div class="post col-12 col-md-6 col-lg-3">
+			<div class="post-image">
+				<img class="img-loading" src="/files/<%= post.image.sm %>" alt="<%= post.title %>">
+			</div>
+			<div class="post-overlay">
+
+				<div class="row justify-content-center">
+					<h1 class="col-12 post-title text-center"><%= post.title %></h1>
+					<div class="col-6 text-right">location</div>
+					<h6 class="col-6 text-left"><%= post.location %></h6>
+					<div class="col-6 text-right">Photographer</div>
+					<h6 class="col-6 text-left"><%= post.photographer %></h6>
+					<div class="col-6 text-right">Date</div>
+					<h6 class="col-6 text-left"><%= post.date.toDateString().split(" ").slice(1, 4).join(" ") %></h6>
+
+					<div class="col-8 post-buttons">
+						<a><i class="liked_icon" data-id='<%= post._id %>' onclick="like('<%= post._id %>')"></i></a>
+						<a href="/single/<%= post._id %>"><i class="icon-focus"></i></a>
+						<a href="/files/<%= post.image.lg %>" download><i class="icon-download32"></i></a>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+		<% }) %>
+		<!-- END EJS -->
+
+	</div>
+	<!-- END OF POSTS -->
+
+	<!-- PAGINATION -->
+	<nav class="row justify-content-center my-5">
+		<ul class="nav justify-content-center text-uppercase">
+			<li class="nav-item">
+				<% if(loadmore){ %>
+				<a class="nav-link my-link" href="/?skip=<%= skip+limit %>"><i class="btn-icon icon-arrow-down22"></i>Load more</a>
+				<% } %>
+			</li>
+		</ul>
+	</nav>
+	<!-- END OF PAGINATION -->
+
+</div>
+<!-- END OF MAIN PAGE -->

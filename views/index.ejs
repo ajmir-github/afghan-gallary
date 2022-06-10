@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- Import Head tag -->
+	<%-include("partials/head", { title, description:"",  keywords:"" }) %>
+<body>
+
+	<!-- Import Top Page -->
+	<%-include("partials/top", { navActive }) %>
+
+
+	<!-- Import Main Page -->
+	<%-include("partials/main", { posts }) %>
+
+
+	<!-- Import Footer -->
+	<%-include("partials/footer") %>
+
+</body>
+
+</html>

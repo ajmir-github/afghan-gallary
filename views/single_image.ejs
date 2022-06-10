@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Import Head -->
+	<%-include("partials/head", {
+		title:`Image Gallary: ${post.title}`,
+		description:`${post.title} by ${post.photographer}`,
+		keywords:post.keywords
+	}) %>
+
+
+<body>
+
+	<!-- TOP PAGE -->
+	<%-include("partials/top", { navActive }) %>
+
+	<!-- SINGLE PAGE -->
+	<%-include("partials/single", { post }) %>
+
+	<!-- MAIN PAGE -->
+	<%-include("partials/main", { posts })%>
+
+	<!-- FOOTER -->
+	<%-include("partials/footer")%>
+
+</body>
+
+</html>
