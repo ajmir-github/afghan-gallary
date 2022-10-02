@@ -160,6 +160,7 @@ $(() => {
     reset()
    })
    .catch(err => {
+    console.error(err);
     updateProgress(0)
     showUploadProgress()
     if (confirm("Upload failed! Do you want to try again?")) {

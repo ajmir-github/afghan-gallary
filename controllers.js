@@ -169,12 +169,13 @@ router.post("/upload", async (req, res)=>{
     const imageModel = new postModel({...req.body, image})
     await imageModel.save()
     res.json("Image uploaded!")
-    updateDepartments()
-  } catch ({message}) {
-    res.status(500).send(message)
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err)
     // garbage collector
     deleteFiles([lgImageName, smImageName])
   }
+  updateDepartments()
 })
 
 
